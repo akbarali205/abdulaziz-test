@@ -3,9 +3,21 @@ const express = require('express');
 const router = express.Router();
 
 const dataSchema = new mongoose.Schema({
-    headerName: String,
-    data: String,
-    postDate: String
+    headerName: {
+        type: String,
+        required: true,
+        minlength: 1,
+    },
+    data: {
+        type: String,
+        required: true,
+        minlength: 1
+    },
+    postDate: {
+        type: Date,
+        required: true,
+        default: Date.now
+    }
 })
 
 const Data = mongoose.model('Data', dataSchema);
