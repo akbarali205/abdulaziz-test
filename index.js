@@ -9,11 +9,11 @@ const morgan = require('morgan');
 
 require('./src/start/logging')()
 require('./src/start/db')()
-app.use('/data', data)
 app.use(morgan('tiny'))
 app.use((err, req, res, next) => {
     res.status(401).json(err);
 });
+app.use('/data', data)
 
 app.get('/', (req, res) => {
     res.send('Hello World');
