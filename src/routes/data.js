@@ -57,5 +57,14 @@ router.put('/update/:id', async (req, res) => {
     res.send(data)
 })
 
+// delete data
+
+router.delete('/delete/:id', async (req, res) => {
+    const data = await Data.findByIdAndDelete(req.params.id)
+
+    if (!data) return res.status(404).send('Data not found')
+    res.send(data)
+})
+
 
 module.exports = router
