@@ -14,9 +14,9 @@ const dataSchema = new mongoose.Schema({
         minlength: 1
     },
     postDate: {
-        type: Date,
+        type: String,
         required: true,
-        default: Date.now
+        minlength: 1
     }
 })
 
